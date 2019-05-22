@@ -27,6 +27,8 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final String title = '登录表单';
     return MaterialApp(
+      //是否显示基础布局网格，用于调试
+      debugShowMaterialGrid: false,
       title: title,
       home: Center(
         child: Scaffold(
