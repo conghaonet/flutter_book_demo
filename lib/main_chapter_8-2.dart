@@ -6,7 +6,7 @@ const TITLE = '滑动删除示例';
 
 class MyApp extends StatelessWidget {
   
-  var items = List<String>.generate(30, (i) => "Item $i");
+  var items = List<String>.generate(30, (i) => "数据项 $i");
   
   void showSnackBar(BuildContext context, String name) {
     Scaffold.of(context).showSnackBar(SnackBar(content: Text(name)));
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
                 items.removeAt(index);
                 showSnackBar(context, "$item 被删除了");
               },
-              child: ListTile(title: Text("$item"),),
+              child: ListTile(title: Text("$item", style: TextStyle(fontFamily: 'myfont'),),),
             );
           },
         ),
