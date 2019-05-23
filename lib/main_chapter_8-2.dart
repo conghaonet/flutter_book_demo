@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
                 items.removeAt(index);
                 showSnackBar(context, "$item 被删除了");
               },
+              //用自定义字体myfont
               child: ListTile(title: Text("$item", style: TextStyle(fontFamily: 'myfont'),),),
             );
           },
