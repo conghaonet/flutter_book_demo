@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
-
 const TITLE = '滑动删除示例';
 
-class MyApp extends StatelessWidget {
-  
-  var items = List<String>.generate(30, (i) => "数据项 $i");
-  
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  MyAppState createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  var items = List<String>.generate(50, (i) => "数据项 $i");
+
   void showSnackBar(BuildContext context, String name) {
     Scaffold.of(context).showSnackBar(SnackBar(content: Text(name)));
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,18 +29,19 @@ class MyApp extends StatelessWidget {
           itemCount: items.length,
           //构建列表
           itemBuilder: (context, index) {
-            //书中没有写这段代码
-            //用于判断index是否超出items长度
-            if(index >= items.length) {
-              return null;
-            }
             final item = items[index];
             //返回一个可被删除的列表项
             return Dismissible(
+              background: Container(
+                color: Colors.red,
+                child: ListTile(title: Text("删除......", style: TextStyle(fontFamily: 'myfont'),),),
+              ),
               key: Key(item),
               //被删除回调
               onDismissed: (direction) {
-                items.removeAt(index);
+                setState(() {
+                  items.removeAt(index);
+                });
                 showSnackBar(context, "$item 被删除了");
               },
               //用自定义字体myfont
