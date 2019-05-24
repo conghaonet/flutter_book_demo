@@ -1,54 +1,97 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'dart:io';
+import 'main_chapter_2.dart' as chapter2;
+import 'main_chapter_3-1.dart' as chapter3_1;
+import 'main_chapter_4-5-1.dart' as chapter4_5_1;
+import 'main_chapter_4-5-3.dart' as chapter4_5_3;
+import 'main_chapter_4-6.dart' as chapter4_6;
+import 'main_chapter_5-1.dart' as chapter5_1;
+import 'main_chapter_7-5.dart' as chapter7_5;
+import 'main_chapter_8-1.dart' as chapter8_1;
+import 'main_chapter_8-2.dart' as chapter8_2;
+import 'main_chapter_10-1.dart' as chapter10_1;
+import 'main_chapter_10-3.dart' as chapter10_3;
 
-class Vector {
-  final int x;
-  final int y;
-  const Vector(this.x, this.y);
-
-  Vector operator + (Vector v) {
-    return new Vector(x + v.x, y + v.y);
-  }
-  Vector operator - (Vector v) {
-    return new Vector(x - v.x, y - v.y);
-  }
-}
-/*
-main() {
-  final v = new Vector(2, 3);
-  final w = new Vector(2, 2);
-  final r1 = v + w;
-  print('r1.x = ' + r1.x.toString()  + 'r1.y = ' + r1.y.toString());
-}
-*/
+const TITLE = 'Flutter技术入门与实战';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    final v = new Vector(2, 3);
-    final w = new Vector(2, 2);
-    final r1 = v + w;
-    print('r1.x = ' + r1.x.toString()  + 'r1.y = ' + r1.y.toString());
     return MaterialApp(
-      title: 'Welcome to Flutter',
+      title: TITLE,
       theme: new ThemeData(
         brightness: Brightness.light,
         primaryColor: Colors.lightBlue[800],
         accentColor: Colors.cyan[600]
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: Text('Hello World'),
-        ),
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatelessWidget {
+
+  void _gotoPage(BuildContext context, Widget targetPage) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => targetPage),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(TITLE),
+      ),
+      body: ListView(
+        children: <Widget>[
+          RaisedButton(
+            child: Text('chapter2 自定义主题'),
+            onPressed: () => _gotoPage(context, chapter2.MyHomePage(title: 'chapter2 自定义主题')),
+          ),
+          RaisedButton(
+            child: Text('chapter3-1 文本组件'),
+            onPressed: () => _gotoPage(context, chapter3_1.ContainerDemo()),
+          ),
+          RaisedButton(
+            child: Text('chapter4-5-1 列表组件'),
+            onPressed: () => _gotoPage(context, chapter4_5_1.MyHomePage()),
+          ),
+          RaisedButton(
+            child: Text('chapter4-5-3 长列表组件'),
+            onPressed: () => _gotoPage(context, chapter4_5_3.MyHomePage()),
+          ),
+          RaisedButton(
+            child: Text('chapter4-6 登录表单'),
+            onPressed: () => _gotoPage(context, chapter4_6.LoginPage()),
+          ),
+          RaisedButton(
+            child: Text('chapter5-1 路由示例'),
+            onPressed: () => _gotoPage(context, chapter5_1.MyApp()),
+          ),
+          RaisedButton(
+            child: Text('chapter7-5 布局综合示例'),
+            onPressed: () => _gotoPage(context, chapter7_5.MyApp()),
+          ),
+          RaisedButton(
+            child: Text('chapter8-1 手势检测示例'),
+            onPressed: () => _gotoPage(context, chapter8_1.MyApp()),
+          ),
+          RaisedButton(
+            child: Text('chapter8-2 滑动删除示例'),
+            onPressed: () => _gotoPage(context, chapter8_2.MyApp()),
+          ),
+          RaisedButton(
+            child: Text('chapter10-1 导航页面示例'),
+            onPressed: () => _gotoPage(context, chapter10_1.FirstScreen()),
+          ),
+          RaisedButton(
+            child: Text('chapter10-3 导航页面示例-带参数'),
+            onPressed: () => _gotoPage(context, chapter10_3.FirstScreen()),
+          ),
+        ],
       ),
     );
   }
