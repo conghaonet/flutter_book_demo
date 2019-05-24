@@ -10,6 +10,7 @@ import 'book_demo/main_chapter_8-1.dart' as chapter8_1;
 import 'book_demo/main_chapter_8-2.dart' as chapter8_2;
 import 'book_demo/main_chapter_10-1.dart' as chapter10_1;
 import 'book_demo/main_chapter_10-3.dart' as chapter10_3;
+import 'cookbook/network_fetch_data.dart' as cookbook_network_fetch;
 
 const TITLE = 'Flutter技术入门与实战';
 
@@ -90,6 +91,10 @@ class MainPage extends StatelessWidget {
           RaisedButton(
             child: Text('chapter10-3 导航页面示例-带参数'),
             onPressed: () => _gotoPage(context, chapter10_3.FirstScreen()),
+          ),
+          RaisedButton(
+            child: Text('cookbook_network_fetch'),
+            onPressed: () => _gotoPage(context, cookbook_network_fetch.MyApp()),
           ),
         ],
       ),

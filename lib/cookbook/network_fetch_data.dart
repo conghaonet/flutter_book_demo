@@ -1,0 +1,75 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+
+
+class Post {
+  final int userId;
+  final int id;
+  final String title;
+  final String body;
+  Post({this.userId, this.id, this.title, this.body});
+  factory Post.fromJson(Map<String, dynamic> json) {
+    return Post(userId: json['userId'], id: json['id'], title: json['title'], body: json['body']);
+  }
+}
+
+Future<Post> fetchPost() async {
+  final response = await http.get(
+    'http://jsonplaceholder.typicode.com/posts/1',
+    headers: {HttpHeaders.authorizationHeader: 'Basic your_api_token_here'},
+  );
+  if(response.statusCode == 200) {
+    return Post.fromJson(json.decode(response.body));
+  } else {
+    throw Exception('加载失败');
+  }
+}
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Fetch data from the internet',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(post: fetchPost(),),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final Future<Post> post;
+
+  MyHomePage({Key key, this.post}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Fetch data from the internet'),
+      ),
+      body: Center(
+        child: FutureBuilder<Post>(
+          future: post,
+          builder: (context, snapshot) {
+            if(snapshot.hasData) {
+              return Text("Post.title：\n${snapshot.data.title}");
+            } else if(snapshot.hasError) {
+              return Text("${snapshot.error}");
+            }
+            //By default, show a loading spinner
+            return CircularProgressIndicator();
+          },
+        ),
+      ),
+    );
+  }
+
+}
