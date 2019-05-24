@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'main_chapter_2.dart' as chapter2;
-import 'main_chapter_3-1.dart' as chapter3_1;
-import 'main_chapter_4-5-1.dart' as chapter4_5_1;
-import 'main_chapter_4-5-3.dart' as chapter4_5_3;
-import 'main_chapter_4-6.dart' as chapter4_6;
-import 'main_chapter_5-1.dart' as chapter5_1;
-import 'main_chapter_7-5.dart' as chapter7_5;
-import 'main_chapter_8-1.dart' as chapter8_1;
-import 'main_chapter_8-2.dart' as chapter8_2;
-import 'main_chapter_10-1.dart' as chapter10_1;
-import 'main_chapter_10-3.dart' as chapter10_3;
+import 'book_demo/main_chapter_2.dart' as chapter2;
+import 'book_demo/main_chapter_3-1.dart' as chapter3_1;
+import 'book_demo/main_chapter_4-5-1.dart' as chapter4_5_1;
+import 'book_demo/main_chapter_4-5-3.dart' as chapter4_5_3;
+import 'book_demo/main_chapter_4-6.dart' as chapter4_6;
+import 'book_demo/main_chapter_5-1.dart' as chapter5_1;
+import 'book_demo/main_chapter_7-5.dart' as chapter7_5;
+import 'book_demo/main_chapter_8-1.dart' as chapter8_1;
+import 'book_demo/main_chapter_8-2.dart' as chapter8_2;
+import 'book_demo/main_chapter_10-1.dart' as chapter10_1;
+import 'book_demo/main_chapter_10-3.dart' as chapter10_3;
 
 const TITLE = 'Flutter技术入门与实战';
 
