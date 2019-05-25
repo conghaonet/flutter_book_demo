@@ -28,7 +28,7 @@ class FirstScreen extends StatelessWidget {
 }
 
 class SecondScreen extends StatelessWidget {
-  var param = "";
+  final param;
 
   SecondScreen({Key key, @required this.param}): super(key: key);
 

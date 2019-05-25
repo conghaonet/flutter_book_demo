@@ -11,6 +11,7 @@ import 'book_demo/main_chapter_8-2.dart' as chapter8_2;
 import 'book_demo/main_chapter_10-1.dart' as chapter10_1;
 import 'book_demo/main_chapter_10-3.dart' as chapter10_3;
 import 'cookbook/network_fetch_data.dart' as cookbook_network_fetch;
+import 'cookbook/network_parsing_json_in_background.dart' as cookbook_parsing_json_in_background;
 
 const TITLE = 'Flutter技术入门与实战';
 
@@ -95,6 +96,10 @@ class MainPage extends StatelessWidget {
           RaisedButton(
             child: Text('cookbook_network_fetch'),
             onPressed: () => _gotoPage(context, cookbook_network_fetch.MyApp()),
+          ),
+          RaisedButton(
+            child: Text('cookbook_parsing_json_in_background'),
+            onPressed: () => _gotoPage(context, cookbook_parsing_json_in_background.MyApp()),
           ),
         ],
       ),

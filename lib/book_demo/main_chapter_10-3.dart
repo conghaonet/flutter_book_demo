@@ -9,7 +9,7 @@ void main() {
 
 class FirstScreen extends StatelessWidget {
   //异步方法中调用Scaffold.of(context)时，需要通过_scaffoldkey调用，否则会报错
-  var _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class FirstScreen extends StatelessWidget {
 }
 
 class SecondScreen extends StatelessWidget {
-  var param = "";
+  final param;
   SecondScreen({Key key, @required this.param}): super(key: key);
 
   @override
