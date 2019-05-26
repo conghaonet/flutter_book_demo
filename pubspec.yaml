@@ -27,17 +27,17 @@ dependencies:
   dio: ^2.1.5
 
   # 视频播放器，目前不兼容，依赖后导致gradle编译错误
-  # video_player: ^0.10.1
+  video_player: ^0.10.1
 
   # 拍照插件，目前不兼容，依赖后导致gradle编译错误
   # Provides tools to work with the cameras on device
   # camera: ^0.5.2+1
 
   # Finds the correct paths to store images
-  path_provider: ^1.1.0
+#  path_provider: ^1.1.0
 
   # Creates paths that work on any platform
-  path: ^1.6.2
+#  path: ^1.6.2
 
 dev_dependencies:
   flutter_test:
