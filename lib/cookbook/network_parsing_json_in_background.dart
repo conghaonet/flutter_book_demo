@@ -12,6 +12,7 @@ class Photo {
   final String thumbnailUrl;
   Photo({this.albumId, this.id, this.title, this.url, this.thumbnailUrl});
 
+  //dynamic关键字：动态类型。如果对象不限于单一类型（没有明确的类型），可使用Object或dynamic关键字
   factory Photo.fromJson(Map<String, dynamic> json) {
     return Photo(
       albumId: json['albumId'] as int,
@@ -24,12 +25,15 @@ class Photo {
 }
 
 List<Photo> parsePhotos(String responseBody) {
+  //dynamic关键字：动态类型。如果对象不限于单一类型（没有明确的类型），可使用Object或dynamic关键字
   final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
   return parsed.map<Photo>((item) => Photo.fromJson(item)).toList();
 }
 
 Future<List<Photo>> fetchPhotos(http.Client client) async {
   final response = await client.get('https://jsonplaceholder.typicode.com/photos');
+  // Use the compute function to run parsePhotos in a separate isolate
+  //These messages can be primitive values, such as null, num, bool, double, or String, or simple objects such as the List<Photo> in this example.
   return compute(parsePhotos, response.body);
 }
 
