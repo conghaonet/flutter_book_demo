@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 //      home: MyHomePage(title: 'Flutter Demo Home Page'),
       home: BlocProvider(
         child: MyHomePage(title: 'Flutter Demo Home Page'),
-        blocs: [CounterBloc(), CounterBloc()],
+        blocs: [CounterBloc()],
       ),
     );
   }

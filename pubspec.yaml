@@ -19,16 +19,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  url_launcher: ^5.0.1
+  url_launcher: ^5.1.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   http: 0.12.0+1
-  dio: ^2.1.5
+  dio: ^2.1.13
   json_annotation: ^2.4.0
+  charts_flutter: ^0.6.0
 
   # 视频播放器，目前不兼容，依赖后导致gradle编译错误
-  video_player: ^0.10.1
+  video_player: ^0.10.1+5
 
   # 拍照插件，目前不兼容，依赖后导致gradle编译错误
   # Provides tools to work with the cameras on device
@@ -43,8 +44,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.6.1
-  json_serializable: ^3.0.0
+  build_runner: ^1.6.3
+  json_serializable: ^3.1.0
 
 
 # For information on the generic Dart part of this file, see the
