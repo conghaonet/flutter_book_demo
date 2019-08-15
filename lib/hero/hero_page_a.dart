@@ -11,7 +11,21 @@ class HeroDemoApp extends StatelessWidget {
       title: 'Hero Demo',
       home: HeroPageA(),
       routes: {
-        '/page_b': (_) => HeroPageB(),
+//        '/page_b': (_) => HeroPageB(),
+      },
+      onGenerateRoute: (settings) {
+        MaterialPageRoute targetPage;
+        if(settings.name == '/page_b') {
+          String name = settings.arguments;
+          targetPage = MaterialPageRoute(
+            settings: settings,
+            builder: (context) {
+              return HeroPageB(name: name);
+            },
+          );
+          return targetPage;
+        }
+        return targetPage ?? MaterialPageRoute(builder: (context) {return HeroPageB(name: 'avatar');});
       },
     );
   }
@@ -36,7 +50,7 @@ class _HeroPageAState extends State<HeroPageA> {
             
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed('/page_b');
+                Navigator.of(context).pushNamed('/page_b', arguments: 'avatar');
               },
               child: Hero(
                 tag: 'avatar',

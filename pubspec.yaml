@@ -30,6 +30,7 @@ dependencies:
 
   # 视频播放器，目前不兼容，依赖后导致gradle编译错误
   video_player: ^0.10.1+5
+  webview_flutter: ^0.3.11+4
 
   # 拍照插件，目前不兼容，依赖后导致gradle编译错误
   # Provides tools to work with the cameras on device
